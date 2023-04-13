@@ -30,7 +30,7 @@ public class Main {
 	    	if (atributo == 1) {
 	            return linha1.getField1().compareTo(linha2.getField1());
 	        } else if (atributo == 2) {
-	            return Double.compare(linha1.getField2(), linha2.getField2());
+	            return linha1.getField2().compareTo(linha2.getField2());
 	        } else {
 	            return 0;
 	        }
