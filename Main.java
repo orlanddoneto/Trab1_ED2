@@ -18,11 +18,11 @@ public class Main {
         csv.readCSV(csvFile);
         Sort sorter = new Sort();
         List<Produto> temp = new ArrayList<>(csv.getLines());
-        //int vetor[] = {5,6,4,2,7,2,8,1}; //orlando calma vai no zap
+        
 
 
-        System.out.printf("Escolhaaa o atributo que deseja usar na ordenacao:\n1 - Nome (string)\n2 - Preco(double)" +
-                "/" +
+        System.out.printf("Escolha o atributo que deseja usar na ordenacao:\n1 - Valor1 (Integer)\n2 - Valor2(Double)" +
+                "\n" +
                 "\nSua Escolha:");
         int atributo = sc.nextInt();
         
@@ -36,10 +36,10 @@ public class Main {
 	        }
 	    };
 	    
-        System.out.printf("Escolha o método de ordenacao:\n1 - QM-Sort\n2 - SI-Sort\n3 - SelectSort\n4 - " +
-                "InsertSort\n5 QuickSort\n6 - MergeSort\n7 - HeapSort\nSua escolha: ");
+        System.out.printf("\nEscolha o método de ordenacao:\n(1) - QM-Sort\n(2) - SI-Sort\n(3) - SelectSort\n(4) - " +
+                "InsertSort\n(5) - QuickSort\n(6) - MergeSort\n(7) - HeapSort\nSua escolha: ");
         int metodo = sc.nextInt();
-        System.out.println("Escolha a ordem de ordenação:\n0 - Crescente\n-1 Decrescente\nSua escolha: \"");
+        System.out.printf("\nEscolha a ordem da ordena��o:\n(1) - Crescente \n(-1) - Decrescente\nSua escolha: ");
         int ordem = sc.nextInt(); // essa variável vai ser usada em alguma coisa que não faço ideia ainda ksksks kkkk
 
         switch (metodo){
@@ -53,7 +53,7 @@ public class Main {
                 //SelectionSort();
                 break;
             case 4:
-                sorter.insertionSort(cmp, temp, 1, temp.size()-1);
+                sorter.insertionSort(cmp, temp, 1, temp.size()-1,ordem);
 
                 break;
             case 5:
@@ -66,13 +66,14 @@ public class Main {
                 //HeapSort();
                 break;
             default:
-                System.out.println("Valor inválido");
+                System.out.println("Valor inv�lido");
 
 
                 sc.close();
         }
 
         // imprimir as linhas ordenadas
+        System.out.printf("\nVetor Ordenado:\n");
         for (Produto line : temp) {
             System.out.println(line.getField1() + "," + line.getField2());
         }
