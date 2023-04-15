@@ -59,16 +59,16 @@ public class Sort {
     	int leftLength = arrayLeft.size();
 	    int rightLength = arrayRight.size();
 	    int i = 0, j = 0, k = 0;
-	    int comparador = cmp.apply(list.get(i), list.get(j));
 	    while (i < leftLength && j < rightLength) {
-	        if (comparador*ordem == 1 || comparador*ordem ==0 ) {
+	    	int comparador = cmp.apply(arrayLeft.get(i), arrayRight.get(j));
+	        if (comparador*ordem >= 0) {
+	            list.set(k, arrayRight.get(j));
+	            k++;
+	            j++;
+	        } else {
 	            list.set(k, arrayLeft.get(i));
 	            k++;
 	            i++;
-	        } else {
-	        	list.set(k, arrayRight.get(j));
-	            k++;
-	            j++;
 	        }
 	    }
 	    while (i < leftLength) {
@@ -83,5 +83,7 @@ public class Sort {
             j++;
 	    }
     }
+    
+    
 
 }
