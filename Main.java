@@ -21,7 +21,7 @@ public class Main {
         
 
 
-        System.out.printf("Escolha o atributo que deseja usar na ordenacao:\n1 - Valor1 (Integer)\n2 - Valor2(Double)" +
+        System.out.printf("Escolha o atributo que deseja usar na ordenacao:\n1 - Valor1 (Integer)\n2 - Valor2 (Double)\n3 - Valor3 (String)" +
                 "\n" +
                 "\nSua Escolha:");
         int atributo = sc.nextInt();
@@ -31,7 +31,10 @@ public class Main {
 	            return linha1.getField1().compareTo(linha2.getField1());
 	        } else if (atributo == 2) {
 	            return linha1.getField2().compareTo(linha2.getField2());
-	        } else {
+	        } else if (atributo == 3 ) {
+	        	return linha1.getField3().compareTo(linha2.getField3());
+	        } 
+	        else {
 	            return 0;
 	        }
 	    };
@@ -40,7 +43,7 @@ public class Main {
                 "InsertSort\n(5) - QuickSort\n(6) - MergeSort\n(7) - HeapSort\nSua escolha: ");
         int metodo = sc.nextInt();
         System.out.printf("\nEscolha a ordem da ordenaÁ„o:\n(1) - Crescente \n(-1) - Decrescente\nSua escolha: ");
-        int ordem = sc.nextInt(); // essa vari√°vel vai ser usada em alguma coisa que n√£o fa√ßo ideia ainda ksksks kkkk
+        int ordem = sc.nextInt(); //
 
         switch (metodo){
             case 1:
@@ -50,7 +53,7 @@ public class Main {
                 //SI_Sort();
                 break;
             case 3:
-                //SelectionSort();
+                sorter.selectSort(cmp,temp,ordem);
                 break;
             case 4:
                 sorter.insertionSort(cmp, temp, 1, temp.size()-1,ordem);
@@ -60,7 +63,7 @@ public class Main {
                 //QuickSort();
                 break;
             case 6:
-                //MergeSort();
+            	sorter.mergeSort(cmp,temp,ordem);
                 break;
             case 7:
                 //HeapSort();
@@ -75,7 +78,7 @@ public class Main {
         // imprimir as linhas ordenadas
         System.out.printf("\nVetor Ordenado:\n");
         for (Produto line : temp) {
-            System.out.println(line.getField1() + "," + line.getField2());
+            System.out.println(line.getField1() + "," + line.getField2()+","+ line.getField3());
         }
 
     }

@@ -38,7 +38,8 @@ public class ReaderCSV {
                 {
                     Integer idade = Integer.parseInt(data[3]);
                     Double preco = Double.parseDouble(data[6]);
-                    Produto produto = new Produto(idade, preco);
+                    String nome_shopping = data[9];
+                    Produto produto = new Produto(idade, preco,nome_shopping);
                     lines.add(produto);
                 }
                 // n sei pq n ta lendo o preco
