@@ -11,7 +11,7 @@ public class Sort {
         for (int i=ini; i<=fim; i++) {
             T temp = list.get(i);
             int j = i-1;
-            while (j >= 0 && cmp.apply(list.get(j), temp)*ordem == 1) {
+            while (j >= 0 && cmp.apply(list.get(j), temp)*ordem > 0) {
                 list.set(j+1, list.get(j));
                 j--;
             }
@@ -24,7 +24,7 @@ public class Sort {
     		int menor = i; // ou Maior
     		T temp = list.get(i);
     		for (int j = i+1; j<list.size();j++) {
-    			if (cmp.apply(list.get(j), list.get(menor))*ordem == -1) {
+    			if (cmp.apply(list.get(j), list.get(menor))*ordem < 0) {
     				menor = j;
     			}
     		}
@@ -72,9 +72,10 @@ public class Sort {
 	        }
 	    }
 	    while (i < leftLength) {
-	    	 list.set(k, arrayLeft.get(i));
-	            k++;
-	            i++;
+	    	list.set(k, arrayLeft.get(i));
+	    	k++;
+	    	i++;
+	    	 
 	    }
 	    
 	    while (j < rightLength) {

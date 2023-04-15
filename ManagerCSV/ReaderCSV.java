@@ -20,7 +20,7 @@ public class ReaderCSV {
     }
 
 
-    public void readCSV(String csvFile){
+    public void readCSV(String csvFile, Integer criterio){
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
@@ -39,7 +39,7 @@ public class ReaderCSV {
                     Integer idade = Integer.parseInt(data[3]);
                     Double preco = Double.parseDouble(data[6]);
                     String nome_shopping = data[9];
-                    Produto produto = new Produto(idade, preco,nome_shopping);
+                    Produto produto = new Produto(idade, preco,nome_shopping, criterio);
                     lines.add(produto);
                 }
                 // n sei pq n ta lendo o preco
