@@ -15,7 +15,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         
         Sort sorter = new Sort();
-        System.out.printf("Escolha o atributo que deseja usar na ordenacao:\n1 - Valor1 (Integer)\n2 - Valor2 (Double)\n3 - Valor3 (String)" +
+        System.out.printf("Escolha o atributo que deseja usar na ordenacao:\n(1) - Valor1 (Integer)\n(2) - Valor2 (Double)\n(3) - Valor3 (String)" +
                 "\n" +
                 "\nSua Escolha:");
         int criterio = sc.nextInt();

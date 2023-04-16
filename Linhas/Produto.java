@@ -1,5 +1,8 @@
 package Linhas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Produto {
 	private Integer criterio;
     private Integer field1;
@@ -29,6 +32,16 @@ public class Produto {
     
     public Integer getCriterio() {
         return criterio;
+    }
+    
+    public Object chave() {
+    	List<Object> list = new ArrayList<>();
+    	list.add(this.getField1());
+    	list.add(this.getField2());
+    	list.add(this.getField3());
+    	
+		return list.get(criterio-1);
+    	
     }
     
 

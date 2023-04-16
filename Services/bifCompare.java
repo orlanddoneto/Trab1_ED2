@@ -8,24 +8,24 @@ public class bifCompare implements BiFunction<Produto, Produto, Integer> {
 
 	@Override
 	public Integer apply(Produto t, Produto u) {
-		int criterio = t.getCriterio();
-		if (criterio == 1) {
-			return compareInteger(t.getField1(),u.getField1());
+		if(t.chave().getClass().equals(String.class)){
+			return compareString((String)t.chave(),(String)u.chave());
 		}
 		
-		if (criterio == 2) {
-			return compareDouble(t.getField2(),u.getField2());
+		if(t.chave().getClass().equals(Integer.class)){
+			return compareInteger((Integer)t.chave(),(Integer)u.chave());
 		}
 		
-		if (criterio == 3) {
-			return compareString(t.getField3(),u.getField3());
+		if(t.chave().getClass().equals(Double.class)){
+			return compareDouble((Double)t.chave(),(Double)u.chave());
 		}
-		
-		
 		return null;
 	}
 	
 	
+	
+
+
 	public Integer compareString(String a, String b) {
 		return a.compareTo(b);
 	}
