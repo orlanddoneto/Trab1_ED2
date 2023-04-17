@@ -13,6 +13,7 @@ public class ReaderCSV {
     private String line = "";
     private String cvsSplitBy = ",";
     private List<Produto> lines = new ArrayList<>();
+    private String csvFile = "C:\\Users\\Cliente\\eclipse-workspace\\Job1_ED2\\src\\ManagerCSV\\customer_shopping_data.csv";
 
 
     public List<Produto> getLines() {
@@ -20,7 +21,7 @@ public class ReaderCSV {
     }
 
 
-    public void readCSV(String csvFile, Integer criterio){
+    public void readCSV(Integer criterio){
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";

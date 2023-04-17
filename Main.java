@@ -14,24 +14,28 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        Sort sorter = new Sort();
+        
         System.out.printf("Escolha o atributo que deseja usar na ordenacao:\n(1) - Valor1 (Integer)\n(2) - Valor2 (Double)\n(3) - Valor3 (String)" +
                 "\n" +
                 "\nSua Escolha:");
         int criterio = sc.nextInt();
-        String csvFile = "C:\\Users\\Cliente\\eclipse-workspace\\Job1_ED2\\src\\ManagerCSV\\customer_shopping_data.csv";
+        
+        
         ReaderCSV csv = new ReaderCSV();
-        csv.readCSV(csvFile,criterio);
+        csv.readCSV(criterio);
         List<Produto> temp = new ArrayList<>(csv.getLines());
         
-        bifCompare cmp = new bifCompare();
+       
 	    
         System.out.printf("\nEscolha o método de ordenacao:\n(1) - QM-Sort\n(2) - SI-Sort\n(3) - SelectSort\n(4) - " +
                 "InsertSort\n(5) - QuickSort\n(6) - MergeSort\n(7) - HeapSort\nSua escolha: ");
         int metodo = sc.nextInt();
         System.out.printf("\nEscolha a ordem da ordenação:\n(1) - Crescente \n(-1) - Decrescente\nSua escolha: ");
         int ordem = sc.nextInt(); //
-
+        
+        
+        Sort sort = new Sort();
+        bifCompare cmp = new bifCompare();
         switch (metodo){
             case 1:
                // QM_Sort();
@@ -40,20 +44,20 @@ public class Main {
                // SI_Sort();
                 break;
             case 3:
-                sorter.selectSort(cmp,temp,ordem);
+                sort.selectSort(cmp,temp,ordem);
                 break;
             case 4:
-                sorter.insertionSort(cmp, temp, 1, temp.size()-1,ordem);
+                sort.insertSort(cmp, temp, 1, temp.size()-1,ordem);
 
                 break;
             case 5:
-                //QuickSort();
+                sort.quickSort(cmp,temp,0,temp.size()-1,ordem);
                 break;
             case 6:
-            	sorter.mergeSort(cmp,temp,ordem);
+            	sort.mergeSort(cmp,temp,ordem);
                 break;
             case 7:
-                //HeapSort();
+                sort.heapSort(cmp,temp,ordem);
                 break;
             default:
                 System.out.println("Valor inválido");
