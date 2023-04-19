@@ -4,7 +4,7 @@ import java.util.function.BiFunction;
 
 import Linhas.Produto;
 
-public class bifCompare implements BiFunction<Produto, Produto, Integer> {
+public class BifCompare implements BiFunction<Produto, Produto, Integer> {
 
 	@Override
 	public Integer apply(Produto t, Produto u) {

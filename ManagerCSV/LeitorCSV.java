@@ -1,13 +1,14 @@
 package ManagerCSV;
-import Algoritmos_ordenacao.Sort;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import AlgoritmosOrdenacao.Sort;
 import Linhas.Produto;
 
-public class ReaderCSV {
+public class LeitorCSV {
 
     private BufferedReader br = null;
     private String line = "";

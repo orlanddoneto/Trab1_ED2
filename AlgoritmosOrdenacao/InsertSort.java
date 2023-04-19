@@ -1,10 +1,12 @@
-package Algoritmos_ordenacao;
+package AlgoritmosOrdenacao;
 
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class InsertSort extends Sort{
-	public static <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+public class InsertSort implements Sort{
+	
+	@Override
+	public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
         for (int i=ini; i<=fim; i++) {
             T temp = list.get(i);
             int j = i-1;
@@ -16,6 +18,7 @@ public class InsertSort extends Sort{
         }
     }
 	
+	/*
 	public long getAtribuicoes() {
 		return atribuicoes;
 	}
@@ -23,5 +26,5 @@ public class InsertSort extends Sort{
 	public long getComparacoes() {
 		return comparacoes;
 	}
-
+*/
 }

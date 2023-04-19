@@ -1,11 +1,12 @@
-package Algoritmos_ordenacao;
+package AlgoritmosOrdenacao;
 
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class HeapSort extends Sort{
-	public static <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ordem) {
-        int n = list.size();
+public class HeapSort implements Sort{
+	@Override
+	public  <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+        int n = fim - ini +1;
 
         // Construir o heap máximo
         for (int i = n / 2 - 1; i >= 0; i--)
@@ -46,7 +47,7 @@ public class HeapSort extends Sort{
             heapify(cmp, list, n, largest, ordem);
         }
     }
-    
+    /*
     public long getAtribuicoes() {
 		return atribuicoes;
 	}
@@ -54,5 +55,5 @@ public class HeapSort extends Sort{
 	public long getComparacoes() {
 		return comparacoes;
 	}
-	
+	*/
 }

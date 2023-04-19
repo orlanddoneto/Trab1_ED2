@@ -1,28 +1,29 @@
-package Algoritmos_ordenacao;
+package AlgoritmosOrdenacao;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class MergeSort extends Sort {
-	public static <T> void ordenar(BiFunction<T, T, Integer> cmp, List <T>list,int ordem) {
-    	if(list.size()<2) {
+public class MergeSort implements Sort {
+	@Override
+	public <T> void ordenar(BiFunction<T, T, Integer> cmp, List <T>list,int ini,int fim, int ordem) {
+    	if(fim<2) {
     		return;
     	}
     	List<T> arrayLeft = new ArrayList<T>();
     	List<T> arrayRight = new ArrayList<T>();
-    	int middle = list.size() / 2;
+    	int middle = fim / 2;
     	
-    	for (int i = 0; i < middle; i++) { // aqui vai adicionar os valores no array da esquerda
+    	for (int i = ini; i < middle; i++) { // aqui vai adicionar os valores no array da esquerda
     		arrayLeft.add(list.get(i));
 	    }
     	
-    	for (int i = middle; i < list.size(); i++) { // aqui vai adicionar os valores no array da direita
+    	for (int i = middle; i <fim; i++) { // aqui vai adicionar os valores no array da direita
     		arrayRight.add(list.get(i));
 	    }
     	
-    	ordenar(cmp,arrayLeft,ordem);
-    	ordenar(cmp,arrayRight,ordem);
+    	ordenar(cmp,arrayLeft,ini,arrayLeft.size(), ordem);
+    	ordenar(cmp,arrayRight,ini,arrayRight.size(),ordem);
     	merge(cmp,arrayLeft,arrayRight,list,ordem);
     	
     }
@@ -56,7 +57,7 @@ public class MergeSort extends Sort {
             j++;
 	    }
     }
-    
+    /*
     public long getAtribuicoes() {
 		return atribuicoes;
 	}
@@ -64,5 +65,5 @@ public class MergeSort extends Sort {
 	public long getComparacoes() {
 		return comparacoes;
 	}
-
+	*/
 }
