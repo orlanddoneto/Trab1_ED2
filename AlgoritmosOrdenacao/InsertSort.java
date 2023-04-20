@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.function.BiFunction;
 
 public class InsertSort implements Sort{
-	
+	private long atribuicoes;
+	private long comparacoes;
 	@Override
 	public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
         for (int i=ini; i<=fim; i++) {

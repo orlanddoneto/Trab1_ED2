@@ -2,7 +2,9 @@ package MenuPrincipal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import Linhas.Produto;
+
+import Entidade.Cliente;
+import ManagerCSV.EscritorCSV;
 import ManagerCSV.LeitorCSV;
 import Services.Gerenciador;
 import Services.BifCompare;
@@ -19,12 +21,12 @@ public class Main {
         
         
         LeitorCSV csv = new LeitorCSV();
-        csv.readCSV(criterio);
-        List<Produto> temp = new ArrayList<>(csv.getLines());
+        csv.lerCSV();
+        List<Cliente> temp = new ArrayList<>(csv.getLines());
         
         
         Gerenciador gerenciador = new Gerenciador();
-        BifCompare cmp = new BifCompare();
+        BifCompare cmp = new BifCompare(criterio);
         switch (metodo){
             case 1:
                // QM_Sort();
@@ -50,12 +52,16 @@ public class Main {
             
         }
         
+        EscritorCSV.escreveCSV(temp);
+      
+        
         // imprimir as linhas ordenadas
+        /*
         System.out.printf("\nVetor Ordenado:\n");
-        for (Produto line : temp) {
+        for (Cliente line : temp) {
             System.out.println(line.getField1() + "," + line.getField2()+","+ line.getField3());
         }
-        
+        */
         sc.close();
 
     }

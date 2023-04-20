@@ -1,20 +1,18 @@
-package Linhas;
+package Entidade;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Produto {
-	private Integer criterio;
+public class Cliente {
     private Integer field1;
     private Double field2;
     private String field3;
 
     // construtor da classe CsvLine
-    public Produto(Integer field1, Double field2, String field3,Integer criterio) {
+    public Cliente(Integer field1, Double field2, String field3) {
         this.field1 = field1;
         this.field2 = field2;
         this.field3 = field3;
-        this.criterio = criterio;
         // ...
     }
 
@@ -30,11 +28,8 @@ public class Produto {
         return field3;
     }
     
-    public Integer getCriterio() {
-        return criterio;
-    }
     
-    public Object chave() {
+    public Object chave(int criterio) {
     	List<Object> list = new ArrayList<>();
     	list.add(this.getField1());
     	list.add(this.getField2());

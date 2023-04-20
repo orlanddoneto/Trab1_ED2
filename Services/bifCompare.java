@@ -2,22 +2,31 @@ package Services;
 
 import java.util.function.BiFunction;
 
-import Linhas.Produto;
+import Entidade.Cliente;
 
-public class BifCompare implements BiFunction<Produto, Produto, Integer> {
+public class BifCompare implements BiFunction<Cliente, Cliente, Integer> {
+	
+	private int criterio;
+	
+	
+	public BifCompare(int criterio) {
+		super();
+		this.criterio = criterio;
+	}
+
 
 	@Override
-	public Integer apply(Produto t, Produto u) {
-		if(t.chave().getClass().equals(String.class)){
-			return compareString((String)t.chave(),(String)u.chave());
+	public Integer apply(Cliente t, Cliente u) {
+		if(t.chave(criterio).getClass().equals(String.class)){
+			return compareString((String)t.chave(criterio),(String)u.chave(criterio));
 		}
 		
-		if(t.chave().getClass().equals(Integer.class)){
-			return compareInteger((Integer)t.chave(),(Integer)u.chave());
+		if(t.chave(criterio).getClass().equals(Integer.class)){
+			return compareInteger((Integer)t.chave(criterio),(Integer)u.chave(criterio));
 		}
 		
-		if(t.chave().getClass().equals(Double.class)){
-			return compareDouble((Double)t.chave(),(Double)u.chave());
+		if(t.chave(criterio).getClass().equals(Double.class)){
+			return compareDouble((Double)t.chave(criterio),(Double)u.chave(criterio));
 		}
 		return null;
 	}

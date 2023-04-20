@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.function.BiFunction;
 
 public class MergeSort implements Sort {
+	private long atribuicoes;
+	private long comparacoes;
 	@Override
 	public <T> void ordenar(BiFunction<T, T, Integer> cmp, List <T>list,int ini,int fim, int ordem) {
     	if(fim<2) {

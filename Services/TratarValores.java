@@ -3,11 +3,11 @@ package Services;
 public class TratarValores {
 	
 	
-	public static boolean tratarMetodo(int entrada) {
+	public static boolean tratarMetodo(String entrada) {
 		int valor = 0;
 		boolean valido = false;
 		try {
-			valor = Integer.parseInt(String.valueOf(entrada));
+			valor = Integer.parseInt(entrada);
 			if (valor >= 1 && valor <= 7) {
 				valido = true;
 			} else {
@@ -23,11 +23,11 @@ public class TratarValores {
 	}
 	
 	
-	public static boolean tratarCriterio(int entrada) {
+	public static boolean tratarCriterio(String entrada) {
 		int valor = 0;
 		boolean valido = false;
 		try {
-			valor = Integer.parseInt(String.valueOf(entrada));
+			valor = Integer.parseInt(entrada);
 			if (valor>=1 && valor<=3) {
 				valido = true;
 			} else {
@@ -42,11 +42,11 @@ public class TratarValores {
 		return valido;
 	}
 	
-	public static boolean tratarOrdem(int entrada) {
+	public static boolean tratarOrdem(String entrada) {
 		int valor = 0;
 		boolean valido = false;
 		try {
-			valor = Integer.parseInt(String.valueOf(entrada));
+			valor = Integer.parseInt(entrada);
 			if (valor == 1 || valor == -1) {
 				valido = true;
 			} else {

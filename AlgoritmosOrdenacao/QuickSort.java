@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.function.BiFunction;
 
 public class QuickSort implements Sort {
+	private long atribuicoes;
+	private long comparacoes;
 	
 	@Override
 	public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
@@ -15,7 +17,7 @@ public class QuickSort implements Sort {
         }
 	}
 	    
-	private static <T> int partition (BiFunction<T,T,Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+	private <T> int partition (BiFunction<T,T,Integer> cmp, List<T> list, int ini, int fim, int ordem) {
 		T pivot = list.get(fim);
 		int i = ini - 1;
 		for (int j = ini; j<fim;j++) {
@@ -27,15 +29,7 @@ public class QuickSort implements Sort {
 		Collections.swap(list, i+1, fim);
 		return i+1;
 	}
-	/*
-	public long getAtribuicoes() {
-		return atribuicoes;
-	}
 	
-	public long getComparacoes() {
-		return comparacoes;
-	}
-	 */   
 	    
 
 }
