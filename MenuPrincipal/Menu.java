@@ -2,7 +2,7 @@ package MenuPrincipal;
 
 import java.util.Scanner;
 
-import Services.TratarValores;
+import Servicos.TratarValores;
 
 public class Menu {
 	

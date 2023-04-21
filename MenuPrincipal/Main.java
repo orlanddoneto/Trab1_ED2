@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import Entidade.Cliente;
-import ManagerCSV.EscritorCSV;
-import ManagerCSV.LeitorCSV;
-import Services.Gerenciador;
-import Services.BifCompare;
+import GerenciadorCSV.EscritorCSV;
+import GerenciadorCSV.LeitorCSV;
+import Servicos.BifCompare;
+import Servicos.Gerenciador;
 
 public class Main {
 		
@@ -27,6 +27,7 @@ public class Main {
         
         Gerenciador gerenciador = new Gerenciador();
         BifCompare cmp = new BifCompare(criterio);
+        long inicioRelogio = System.currentTimeMillis();
         switch (metodo){
             case 1:
                // QM_Sort();
@@ -51,17 +52,15 @@ public class Main {
                 break;
             
         }
+        long fimRelogio = System.currentTimeMillis();
+        
+        long tempoProcessamento = (fimRelogio - inicioRelogio);
+        
+        System.out.printf("Tempo de processamento em milissegundos: %d\n",tempoProcessamento);
         
         EscritorCSV.escreveCSV(temp);
       
         
-        // imprimir as linhas ordenadas
-        /*
-        System.out.printf("\nVetor Ordenado:\n");
-        for (Cliente line : temp) {
-            System.out.println(line.getField1() + "," + line.getField2()+","+ line.getField3());
-        }
-        */
         sc.close();
 
     }

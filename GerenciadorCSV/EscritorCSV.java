@@ -1,4 +1,4 @@
-package ManagerCSV;
+package GerenciadorCSV;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,7 +11,7 @@ public class EscritorCSV {
 	
 	public static void escreveCSV(List<Cliente> list) {
 		try{
-			FileWriter writer = new FileWriter("C:\\Users\\Cliente\\eclipse-workspace\\Job1_ED2\\src\\ManagerCSV\\csvOrdenado.csv");
+			FileWriter writer = new FileWriter("C:\\Users\\Cliente\\eclipse-workspace\\Job1_ED2\\src\\GerenciadorCSV\\csvOrdenado.csv");
 			PrintWriter printWriter = new PrintWriter(writer);
 			
 		    // escreva cada linha do vetor no arquivo

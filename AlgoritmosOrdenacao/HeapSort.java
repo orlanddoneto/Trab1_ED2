@@ -6,11 +6,12 @@ import java.util.function.BiFunction;
 import Entidade.Cliente;
 
 public class HeapSort implements Sort{
-	private long atribuicoes;
-	private long comparacoes;
-	@Override
-	public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+    private static long atribuicoes = 0L;
+    private static long comparacoes = 0L;
+    @Override
+    public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
         int n = fim - ini +1;
+        atribuicoes++;
 
         // Construir o heap máximo
         for (int i = n / 2 - 1; i >= 0; i--)
@@ -20,6 +21,7 @@ public class HeapSort implements Sort{
         for (int i = n - 1; i >= 0; i--) {
             // Mover o elemento atual para o final
             T temp = list.get(0);
+            atribuicoes++;
             list.set(0, list.get(i));
             list.set(i, temp);
 
@@ -30,20 +32,29 @@ public class HeapSort implements Sort{
 
     private static <T> void heapify(BiFunction<T, T, Integer> cmp, List<T> list, int n, int i, int ordem) {
         int largest = i; // Inicializar o maior como raiz
+        atribuicoes++;
         int l = 2 * i + 1; // esquerda = 2 * i + 1
+        atribuicoes++;
         int r = 2 * i + 2; // direita = 2 * i + 2
+        atribuicoes++;
 
         // Se o filho esquerdo é maior que a raiz
+        comparacoes++;
         if (l < n && cmp.apply(list.get(l), list.get(largest)) * ordem > 0)
             largest = l;
+            atribuicoes++;
 
         // Se o filho direito é maior que o maior até agora
+        comparacoes++;
         if (r < n && cmp.apply(list.get(r), list.get(largest)) * ordem > 0)
             largest = r;
+            atribuicoes++;
 
         // Se o maior não é raiz
+        comparacoes++;
         if (largest != i) {
             T swap = list.get(i);
+            atribuicoes++;
             list.set(i, list.get(largest));
             list.set(largest, swap);
 
@@ -51,13 +62,11 @@ public class HeapSort implements Sort{
             heapify(cmp, list, n, largest, ordem);
         }
     }
-    /*
     public long getAtribuicoes() {
 		return atribuicoes;
 	}
-	
+
 	public long getComparacoes() {
 		return comparacoes;
 	}
-	*/
 }
