@@ -3,13 +3,15 @@ package AlgoritmosOrdenacao;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class SelectSort implements Sort {
-    private long atribuicoes = 0L;
-    private long comparacoes = 0L;
+import Entidade.Cliente;
 
+public class SelectSort<T> extends Sort<T> {
+
+	private static long atribuicoes = 0L;
+    private static long comparacoes = 0L;
 
     @Override
-    public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
         for (int i = ini; i<fim;i++) {
             int menor = i; // ou Maior
             atribuicoes++;
@@ -27,14 +29,17 @@ public class SelectSort implements Sort {
         }
     }
 
-
-    public long getAtribuicoes() {
+    @Override
+    public long getTrocas() {
         return atribuicoes;
     }
 
-    public long getComparacoes() {
-    	return comparacoes;
-    }
+	@Override
+	public long getComparacoes() {
+		return comparacoes;
+	}
+    
+    
 
 
 }

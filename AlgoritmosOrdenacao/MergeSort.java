@@ -4,11 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class MergeSort implements Sort {
-    private static long atribuicoes = 0L;
+import Entidade.Cliente;
+
+public class MergeSort<T> extends Sort<T> {
+    
+
+	private static long atribuicoes = 0L;
     private static long comparacoes = 0L;
+    
     @Override
-    public <T> void ordenar(BiFunction<T, T, Integer> cmp, List <T>list,int ini,int fim, int ordem) {
+    public void ordenar(BiFunction<T, T, Integer> cmp, List <T>list,int ini,int fim, int ordem) {
         comparacoes++;
         if(fim<2) {
             return;
@@ -69,10 +74,12 @@ public class MergeSort implements Sort {
         }
     }
 
-    public long getAtribuicoes() {
-		return atribuicoes;
-	}
+    @Override
+    public long getTrocas() {
+        return atribuicoes;
+    }
 
+	@Override
 	public long getComparacoes() {
 		return comparacoes;
 	}

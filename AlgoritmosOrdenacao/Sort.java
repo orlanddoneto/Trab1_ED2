@@ -7,9 +7,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public interface Sort {
-	public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem);
+import Entidade.Cliente;
+import Servicos.BifCompare;
+
+
+public abstract class Sort<T> {
 	
 	
+	public abstract void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem);
+	
+	public abstract long getComparacoes();
+	public abstract long getTrocas();
 	
 }

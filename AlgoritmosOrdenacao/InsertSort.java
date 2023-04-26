@@ -3,11 +3,16 @@ package AlgoritmosOrdenacao;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class InsertSort implements Sort{
-    private long atribuicoes = 0L;
-    private long comparacoes = 0L;
-    @Override
-    public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+import Entidade.Cliente;
+
+public class InsertSort<T> extends Sort<T>{
+    
+
+	private static long atribuicoes = 0L;
+    private static long comparacoes = 0L;
+
+	@Override
+    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
         for (int i=ini; i<=fim; i++) {
             T temp = list.get(i);
             atribuicoes++;
@@ -23,10 +28,12 @@ public class InsertSort implements Sort{
         }
     }
 
-	public long getAtribuicoes() {
-		return atribuicoes;
-	}
+	@Override
+    public long getTrocas() {
+        return atribuicoes;
+    }
 
+	@Override
 	public long getComparacoes() {
 		return comparacoes;
 	}

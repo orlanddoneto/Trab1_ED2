@@ -4,13 +4,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class QuickSort implements Sort {
-    private long atribuicoes = 0L;
-    private long comparacoes = 0L;
+import Entidade.Cliente;
+
+public class QuickSort<T> extends Sort<T> {
+
+	private static long atribuicoes = 0L;
+    private static long comparacoes = 0L;
 
     @Override
-    public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
         comparacoes++;
+        
         if (ini < fim) {
             int pivot = partition(cmp, list, ini, fim, ordem);
             atribuicoes++;
@@ -19,7 +23,7 @@ public class QuickSort implements Sort {
         }
     }
 
-    private <T> int partition (BiFunction<T,T,Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+    private int partition (BiFunction<T,T,Integer> cmp, List<T> list, int ini, int fim, int ordem) {
         T pivot = list.get(fim);
         atribuicoes++;
         int i = ini - 1;
@@ -35,12 +39,14 @@ public class QuickSort implements Sort {
         return i+1;
     }
 
-    public long getAtribuicoes() {
+    @Override
+    public long getTrocas() {
         return atribuicoes;
     }
 
-    public long getComparacoes() {
-    	return comparacoes;
-    }
+	@Override
+	public long getComparacoes() {
+		return comparacoes;
+	}
 
 }

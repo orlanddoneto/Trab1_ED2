@@ -1,12 +1,16 @@
 package MenuPrincipal;
 
+import java.util.List;
 import java.util.Scanner;
 
+import Entidade.Cliente;
+import Servicos.BifCompare;
 import Servicos.TratarValores;
 
-public class Menu {
+public class Menu extends TemplateMain{
 	
-	public static int metodo(Scanner sc) { 
+	@Override
+	public int metodo() { 
 		boolean tratar = false;
 		String temp = null;
 		
@@ -22,7 +26,8 @@ public class Menu {
 
 	}
 	
-	public static int criterio(Scanner sc) {
+	@Override
+	public int criterio() {
 		boolean tratar = false;
 		String temp = null;
 
@@ -39,8 +44,8 @@ public class Menu {
 
 	}
 	
-	
-	public static int ordem(Scanner sc) {
+	@Override
+	public int ordem() {
 		boolean tratar = false;
 		
 		String temp = null;
@@ -56,5 +61,37 @@ public class Menu {
 		return ordem;
 
 	}
+
+	@Override
+	public int numExecucoes() {
+		System.out.println("Quantas vezes o algoritmo deve ser executado?");
+		String temp = null;
+		boolean tratar = false;
+		
+		while (!tratar) {
+			temp = sc.nextLine();
+			tratar = TratarValores.tratarNumExecucoes(temp);
+			
+		}
+		int numExecucoes = Integer.parseInt(temp);
+		return numExecucoes;
+		
+	}
+
+	@Override
+	public void gerenciarAlgoritmo(int metodo, BifCompare cmp, List<Cliente> temp, int ordem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void imprimirResultados(long trocas, long comparacoes, long tempo, int numExecucoes) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
 
 }

@@ -5,19 +5,21 @@ import java.util.function.BiFunction;
 
 import Entidade.Cliente;
 
-public class HeapSort implements Sort{
-    private static long atribuicoes = 0L;
+public class HeapSort<T> extends Sort<T>{
+    
+	private static long atribuicoes = 0L;
     private static long comparacoes = 0L;
-    @Override
-    public <T> void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
-        int n = fim - ini +1;
+    
+	@Override
+    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+        int n = fim - ini+1;
         atribuicoes++;
 
-        // Construir o heap máximo
+        // Construir o heap máximo - equivale ao buildMaxHeap
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(cmp, list, n, i, ordem);
 
-        // Extrair um elemento do heap de cada vez
+        // Extrair um elemento do heap de cada vez - parte que é responsável por ordenar
         for (int i = n - 1; i >= 0; i--) {
             // Mover o elemento atual para o final
             T temp = list.get(0);
@@ -25,7 +27,7 @@ public class HeapSort implements Sort{
             list.set(0, list.get(i));
             list.set(i, temp);
 
-            // Chamar max heapify no heap reduzido
+            // Chamar max heapify no heap reduzido - uma vez que a estrutura do heap foi desfeita com a troca
             heapify(cmp, list, i, 0, ordem);
         }
     }
@@ -58,14 +60,16 @@ public class HeapSort implements Sort{
             list.set(i, list.get(largest));
             list.set(largest, swap);
 
-            // Recursivamente heapify a subárvore afetada
+            // Recursivamente heapify a subarvore afetada
             heapify(cmp, list, n, largest, ordem);
         }
     }
-    public long getAtribuicoes() {
-		return atribuicoes;
-	}
+    @Override
+    public long getTrocas() {
+        return atribuicoes;
+    }
 
+	@Override
 	public long getComparacoes() {
 		return comparacoes;
 	}

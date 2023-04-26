@@ -1,3 +1,4 @@
+
 package MenuPrincipal;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,17 +8,18 @@ import Entidade.Cliente;
 import GerenciadorCSV.EscritorCSV;
 import GerenciadorCSV.LeitorCSV;
 import Servicos.BifCompare;
-import Servicos.Gerenciador;
+import Servicos.ExecutarPrograma;
+
 
 public class Main {
 		
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-       
-        int criterio = Menu.criterio(sc);
-        int metodo = Menu.metodo(sc);
-        int ordem = Menu.ordem(sc);
+        TemplateMain menu = new ExecutarPrograma();
+        menu.templateMain();
+        /*
+        int criterio = 0;
+        int metodo = 0;
+        int ordem = 0;
         
         
         LeitorCSV csv = new LeitorCSV();
@@ -57,11 +59,11 @@ public class Main {
         long tempoProcessamento = (fimRelogio - inicioRelogio);
         
         System.out.printf("Tempo de processamento em milissegundos: %d\n",tempoProcessamento);
-        
-        EscritorCSV.escreveCSV(temp);
+        */
+      
       
         
-        sc.close();
+        
 
     }
    

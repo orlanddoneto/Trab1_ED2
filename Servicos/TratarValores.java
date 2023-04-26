@@ -60,4 +60,24 @@ public class TratarValores {
 
 		return valido;
 	}
+	
+	public static boolean tratarNumExecucoes(String entrada) {
+		int valor = 0;
+		boolean valido = false;
+		try {
+			valor = Integer.parseInt(entrada);
+			if (valor>0) {
+				valido = true;
+			} else {
+				System.out.println("Valor inválido. Digite um número inteiro positivo e diferente de 0.");
+			}
+		} 
+		
+		catch (NumberFormatException e) {
+			System.out.println("Valor inválido. Digite um número inteiro positivo e diferente de 0");
+		}
+
+		return valido;
+	}
+	
 }
