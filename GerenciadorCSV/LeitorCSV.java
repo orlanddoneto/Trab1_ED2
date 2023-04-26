@@ -30,7 +30,7 @@ public class LeitorCSV {
 
         try {
             br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null) { //  (&& cont<5) aqui que digo quantos elementos eu vou querer, caso eu queira um teto
+            while ((line = br.readLine()) != null && cont<5) { //  (&& cont<5) aqui que digo quantos elementos eu vou querer, caso eu queira um teto
                 String[] data = line.split(cvsSplitBy);
                 cont++;
                 if (cont==1){

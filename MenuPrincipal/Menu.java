@@ -78,14 +78,16 @@ public class Menu extends TemplateMain{
 		
 	}
 
+	
+
 	@Override
-	public void gerenciarAlgoritmo(int metodo, BifCompare cmp, List<Cliente> temp, int ordem) {
+	public void imprimirResultados(long trocas, long comparacoes, long tempo, int numExecucoes) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void imprimirResultados(long trocas, long comparacoes, long tempo, int numExecucoes) {
+	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem) {
 		// TODO Auto-generated method stub
 		
 	}

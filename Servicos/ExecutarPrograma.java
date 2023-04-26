@@ -34,9 +34,9 @@ public class ExecutarPrograma extends TemplateMain {
 	}
 
 	@Override
-	public void gerenciarAlgoritmo(int metodo, BifCompare cmp, List<Cliente> lista, int ordem) {
+	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista,int ini, int fim, int ordem) {
 		GerenciadorAlgoritmos algoritmo = new GerenciadorAlgoritmos();
-		algoritmo.gerenciarAlgoritmo(metodo, cmp, lista, ordem);
+		algoritmo.ordenarAlgoritmo(cmp, lista, ini, fim, ordem);
 		
 	}
 

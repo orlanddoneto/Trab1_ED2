@@ -56,10 +56,12 @@ public class Resultados extends TemplateMain {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 	@Override
-	public void gerenciarAlgoritmo(int metodo, BifCompare cmp, List<Cliente> lista, int ordem) {
+	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	
 }

@@ -9,7 +9,7 @@ import Entidade.Cliente;
 public class MergeSort<T> extends Sort<T> {
     
 
-	private static long atribuicoes = 0L;
+	private static long movimentacoes = 0L;
     private static long comparacoes = 0L;
     
     @Override
@@ -21,7 +21,6 @@ public class MergeSort<T> extends Sort<T> {
         List<T> arrayLeft = new ArrayList<T>();
         List<T> arrayRight = new ArrayList<T>();
         int middle = fim / 2;
-        atribuicoes++;
 
         for (int i = ini; i < middle; i++) { // aqui vai adicionar os valores no array da esquerda
             arrayLeft.add(list.get(i));
@@ -41,33 +40,35 @@ public class MergeSort<T> extends Sort<T> {
         int leftLength = arrayLeft.size();
         int rightLength = arrayRight.size();
         int i = 0, j = 0, k = 0;
-        atribuicoes+=5;
 
         while (i < leftLength && j < rightLength) {
             int comparador = cmp.apply(arrayLeft.get(i), arrayRight.get(j));
-            atribuicoes++;
             comparacoes++;
             if (comparador*ordem >= 0) {
+            	movimentacoes++;
                 list.set(k, arrayRight.get(j));
                 k++;
                 j++;
             } else {
+            	movimentacoes++;
                 list.set(k, arrayLeft.get(i));
                 k++;
                 i++;
             }
         }
-        comparacoes++;
+        
         while (i < leftLength) {
         	comparacoes++;
+        	movimentacoes++;
             list.set(k, arrayLeft.get(i));
             k++;
             i++;
 
         }
-        comparacoes++;
+        
         while (j < rightLength) {
         	comparacoes++;
+        	movimentacoes++;
             list.set(k, arrayRight.get(j));
             k++;
             j++;
@@ -75,8 +76,8 @@ public class MergeSort<T> extends Sort<T> {
     }
 
     @Override
-    public long getTrocas() {
-        return atribuicoes;
+    public long getMovimentacoes() {
+        return movimentacoes;
     }
 
 	@Override
