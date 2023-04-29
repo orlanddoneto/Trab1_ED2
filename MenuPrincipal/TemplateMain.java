@@ -24,8 +24,7 @@ public abstract class TemplateMain {
 		double porcentagem = 0;
 		
 		if (metodo == 2) {
-			System.out.println("Digite a porcentagem para ordenar as extremidades: ");
-			porcentagem = sc.nextDouble();
+			porcentagem = this.porcentagem();
 		}
 		
 		int numExecucoes = this.numExecucoes();
@@ -43,7 +42,6 @@ public abstract class TemplateMain {
 		gerente.setSort(metodo);
 		
 		while (numExecucoesAtual < numExecucoes) {
-
 			numExecucoesAtual++;
 			lista = csv.getLines();
 			gerente.ordenarAlgoritmo(cmp, lista, 0, lista.size() - 1, ordem,porcentagem);
@@ -55,7 +53,6 @@ public abstract class TemplateMain {
 
 		long fimRelogio = System.currentTimeMillis(); // tempo Final Em Milissegundos
 		long tempoProcessamento = fimRelogio - inicioRelogio;
-
 		this.imprimirResultados(movimentacoes, comparacoes, tempoProcessamento, numExecucoesAtual);
 		EscritorCSV.escreveCSV(lista);
 		sc.close();
@@ -73,6 +70,9 @@ public abstract class TemplateMain {
 
 	// exibe menu para receber o valor de numExecucoes (classe Menu)
 	public abstract int numExecucoes();
+	
+	// exibe menu para receber o valor de porcentagem (classe Menu)
+	public abstract double porcentagem();
 
 	// gerencia a execução de determinado algoritmo, com base no valor de método
 	// (classe GerenciadorAlgoritmos, no pacote Servicos)

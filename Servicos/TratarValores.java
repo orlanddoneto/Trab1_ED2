@@ -80,4 +80,25 @@ public class TratarValores {
 		return valido;
 	}
 	
+	public static boolean tratarPorcentagem(String entrada) {
+		double valor = 0;
+		boolean valido = false;
+		try {
+			valor = Double.parseDouble(entrada);
+			if (valor>0 && valor<50) {
+				valido = true;
+			} else {
+				System.out.println("Valor inválido. Digite um número inteiro positivo, diferente de 0 e menor que 50.");
+			}
+		} 
+		
+		catch (NumberFormatException e) {
+			System.out.println("Valor inválido. Digite um número inteiro positivo, diferente de 0 e menor que 50.");
+		}
+
+		return valido;
+	}
+	
+	
+	
 }

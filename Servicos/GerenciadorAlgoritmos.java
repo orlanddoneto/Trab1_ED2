@@ -68,6 +68,12 @@ public class GerenciadorAlgoritmos extends TemplateMain{
 		
 	}
 
+	@Override
+	public double porcentagem() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 
 	

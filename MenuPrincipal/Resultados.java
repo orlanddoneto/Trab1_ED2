@@ -62,6 +62,12 @@ public class Resultados extends TemplateMain {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public double porcentagem() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }

@@ -81,6 +81,21 @@ public class Menu extends TemplateMain{
 		return numExecucoes;
 		
 	}
+	
+	public double porcentagem() {
+		System.out.println("Digite a porcentagem para ordenar as extremidades: ");
+		String temp = null;
+		boolean tratar = false;
+		
+		while (!tratar) {
+			temp = sc.nextLine();
+			tratar = TratarValores.tratarPorcentagem(temp);
+		}
+		
+		double porcentagem = Double.parseDouble(temp);
+		return porcentagem;
+		
+	}
 
 	
 
