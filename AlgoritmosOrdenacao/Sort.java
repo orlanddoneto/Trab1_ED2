@@ -14,7 +14,7 @@ import Servicos.BifCompare;
 public abstract class Sort<T> {
 	
 	
-	public abstract void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem);
+	public abstract void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem, double porcentagem);
 	
 	public abstract long getComparacoes();
 	public abstract long getMovimentacoes();

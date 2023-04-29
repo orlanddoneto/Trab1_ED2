@@ -4,36 +4,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
-    private Integer field1;
-    private Double field2;
-    private String field3;
-
-    // construtor da classe CsvLine
-    public Cliente(Integer field1, Double field2, String field3) {
-        this.field1 = field1;
-        this.field2 = field2;
-        this.field3 = field3;
-        // ...
-    }
-
-    public Integer getField1() {
-        return field1;
-    }
-
-    public Double getField2() {
-        return field2;
-    }
+    private Integer idFatura;
+    private Integer idCliente;
+    private String sexo;
+    private Integer idade;
+    private String categoria;
+    private Integer quantidade;
+    private Double preco;
+    private String formaPagamento;
+    private String shopping;
     
-    public String getField3() {
-        return field3;
-    }
+    // construtor da classe CsvLine
+
+    public Cliente(Integer idFatura, Integer idCliente, String sexo, Integer idade, String categoria,
+			Integer quantidade, Double preco, String formaPagamento, String shopping) {
+    	
+		this.idFatura = idFatura;
+		this.idCliente = idCliente;
+		this.sexo = sexo;
+		this.idade = idade;
+		this.categoria = categoria;
+		this.quantidade = quantidade;
+		this.preco = preco;
+		this.formaPagamento = formaPagamento;
+		this.shopping = shopping;
+	}
+
+	
     
     
     public Object chave(int criterio) {
     	List<Object> list = new ArrayList<>();
-    	list.add(this.getField1());
-    	list.add(this.getField2());
-    	list.add(this.getField3());
+    	list.add(idFatura);
+    	list.add(idCliente);
+    	list.add(sexo);
+    	list.add(idade);
+    	list.add(categoria);
+    	list.add(quantidade);
+    	list.add(preco);
+    	list.add(formaPagamento);
+    	list.add(shopping);
     	
 		return list.get(criterio-1);
     	

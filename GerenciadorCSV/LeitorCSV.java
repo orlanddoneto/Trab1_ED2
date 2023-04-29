@@ -30,18 +30,20 @@ public class LeitorCSV {
 
         try {
             br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null && cont<5) { //  (&& cont<5) aqui que digo quantos elementos eu vou querer, caso eu queira um teto
-                String[] data = line.split(cvsSplitBy);
+            while ((line = br.readLine()) != null) { //  (&& cont<5) aqui que digo quantos elementos eu vou querer, caso eu queira um teto
+                
+            	String[] data = line.split(cvsSplitBy);
+                
                 cont++;
                 if (cont==1){
                     continue;
                 }
                 else
                 {
-                    Integer idade = Integer.parseInt(data[3]);
-                    Double preco = Double.parseDouble(data[6]);
-                    String nome_shopping = data[9];
-                    Cliente produto = new Cliente(idade, preco,nome_shopping);
+                	//Faz o pré-processamento, removendo campos do tipo "I13774" e "C309420"
+                    data = PreProcessamento.trataLinha(data);
+                    
+                    Cliente produto = criaCliente(data);
                     lines.add(produto);
                 }
               
@@ -60,6 +62,19 @@ public class LeitorCSV {
             }
         }
 
+    }
+    
+    private Cliente criaCliente(String[]data) {
+    	Integer idFatura = Integer.parseInt(data[0]);
+        Integer idCliente = Integer.parseInt(data[1]);
+        String sexo = data[2];
+        Integer idade = Integer.parseInt(data[3]);
+        String categoria = data[4];
+        Integer quantidade = Integer.parseInt(data[5]);
+        Double preco = Double.parseDouble(data[6]);
+        String formaPagamento = data[7];
+        String shopping = data[9];
+    	return new Cliente(idFatura,idCliente,sexo,idade,categoria,quantidade,preco,formaPagamento,shopping);
     }
 
 }

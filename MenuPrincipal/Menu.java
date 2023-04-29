@@ -21,6 +21,7 @@ public class Menu extends TemplateMain{
 			temp = sc.nextLine(); //
 			tratar = TratarValores.tratarMetodo(temp);
 		}
+		
 		int metodo = Integer.parseInt(temp);
 		return metodo;
 
@@ -31,14 +32,17 @@ public class Menu extends TemplateMain{
 		boolean tratar = false;
 		String temp = null;
 
-		System.out.printf("Escolha o atributo que deseja usar na ordenacao:"
-				+ "\n(1) - Valor1 (Integer)\n(2) - Valor2 (Double)\n(3) - Valor3 (String)" +
+		System.out.printf("\nEscolha o atributo que deseja usar na ordenacao:"
+				+ "\n(1) - IDFatura - (Integer)\n(2) - IDCliente - (Integer)\n(3) - Sexo - (String)\n(4) - Idade - (Integer)"
+				+ "\n(5) - Categoria - (String)\n(6) - Quantidade - (Integer)\n(7) - Preço - (Double)\n(8) - Forma de pagamento - (String)"
+				+ "\n(9) - Shopping - (String)"+
                 "\n\nSua Escolha: ");
 		
 		while (!tratar) {
 			temp = sc.nextLine();
 			tratar = TratarValores.tratarCriterio(temp);
 		}
+		
 		int criterio = Integer.parseInt(temp);
 		return criterio;
 
@@ -55,8 +59,8 @@ public class Menu extends TemplateMain{
 		while (!tratar) {
 			temp = sc.nextLine();
 			tratar = TratarValores.tratarOrdem(temp);
-			
 		}
+		
 		int ordem = Integer.parseInt(temp);
 		return ordem;
 
@@ -71,8 +75,8 @@ public class Menu extends TemplateMain{
 		while (!tratar) {
 			temp = sc.nextLine();
 			tratar = TratarValores.tratarNumExecucoes(temp);
-			
 		}
+		
 		int numExecucoes = Integer.parseInt(temp);
 		return numExecucoes;
 		
@@ -87,7 +91,7 @@ public class Menu extends TemplateMain{
 	}
 
 	@Override
-	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem) {
+	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem, double porcentagem) {
 		// TODO Auto-generated method stub
 		
 	}

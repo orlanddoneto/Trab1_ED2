@@ -21,31 +21,37 @@ public abstract class TemplateMain {
 		List<Cliente> lista = new ArrayList<>();
 
 		int metodo = this.metodo();
+		double porcentagem = 0;
+		
+		if (metodo == 2) {
+			System.out.println("Digite a porcentagem para ordenar as extremidades: ");
+			porcentagem = sc.nextDouble();
+		}
+		
 		int numExecucoes = this.numExecucoes();
 		int criterio = this.criterio();
 		int ordem = this.ordem();
+		
 
 		BifCompare cmp = new BifCompare(criterio);
 
 		int numExecucoesAtual = 0; // contador para delimitar até numExecucoes
 
-		long movimentacoes = 0L;
-		long comparacoes = 0L;
-
 		long inicioRelogio = System.currentTimeMillis();// tempo Inicial Em Milissegundos
-
+		
 		GerenciadorAlgoritmos gerente = new GerenciadorAlgoritmos();
 		gerente.setSort(metodo);
+		
 		while (numExecucoesAtual < numExecucoes) {
 
 			numExecucoesAtual++;
 			lista = csv.getLines();
-			gerente.ordenarAlgoritmo(cmp, lista, 0, lista.size() - 1, ordem);
+			gerente.ordenarAlgoritmo(cmp, lista, 0, lista.size() - 1, ordem,porcentagem);
 
 		}
 
-		movimentacoes = gerente.getSort().getMovimentacoes();
-		comparacoes = gerente.getSort().getComparacoes();
+		long movimentacoes = gerente.getSort().getMovimentacoes();
+		long comparacoes = gerente.getSort().getComparacoes();
 
 		long fimRelogio = System.currentTimeMillis(); // tempo Final Em Milissegundos
 		long tempoProcessamento = fimRelogio - inicioRelogio;
@@ -70,7 +76,7 @@ public abstract class TemplateMain {
 
 	// gerencia a execução de determinado algoritmo, com base no valor de método
 	// (classe GerenciadorAlgoritmos, no pacote Servicos)
-	public abstract void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem);
+	public abstract void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem, double porcentagem);
 
 	// exibe os resultados da ordenação classe Resultados
 	public abstract void imprimirResultados(long trocas, long comparacoes, long tempo, int numExecucoes);

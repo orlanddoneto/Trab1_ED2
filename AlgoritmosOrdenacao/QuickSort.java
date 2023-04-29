@@ -12,13 +12,13 @@ public class QuickSort<T> extends Sort<T> {
     private static long comparacoes = 0L;
 
     @Override
-    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem, double porcentagem) {
         comparacoes++;
         if (ini < fim) {
             int pivot = partition(cmp, list, ini, fim, ordem);
             
-            ordenar(cmp, list, ini, pivot - 1, ordem);
-            ordenar(cmp, list, pivot + 1, fim, ordem);
+            ordenar(cmp, list, ini, pivot - 1, ordem, porcentagem);
+            ordenar(cmp, list, pivot + 1, fim, ordem, porcentagem);
         }
     }
 

@@ -12,7 +12,7 @@ public class InsertSort<T> extends Sort<T>{
     private static long comparacoes = 0L;
 
 	@Override
-    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem, double porcentagem) {
 		ini++;
         for (int i=ini; i<=fim; i++) {
             T temp = list.get(i);

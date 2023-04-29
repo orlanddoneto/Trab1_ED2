@@ -13,23 +13,23 @@ public class Resultados extends TemplateMain {
 		double trocasMedia = trocasMedia(trocas,numExecucoes);
 		double comparacoesMedia = comparacoesMedio(comparacoes,numExecucoes);
 		
-		System.out.printf("\nO tempo médio de processamento foi: %.3f\n",tempoMedio);
-		System.out.printf("O número médio de atribuições foi: %.3f\n",trocasMedia);
+		System.out.printf("\nO tempo médio de processamento, em milissegundos, foi: %.3f\n",tempoMedio);
+		System.out.printf("O número médio de movimentações foi: %.3f\n",trocasMedia);
 		System.out.printf("O número médio de comparações foi: %.3f\n",comparacoesMedia);
 	}
 	
 	private double tempoMedio(long tempo, int cont) {
-		double resultado = (double) (tempo/cont);
+		double resultado =  ((double)tempo/(double)cont);
 		return resultado;
 	}
 	
 	private double trocasMedia(long atribuicoes, int cont) {
-		double resultado = (double) (atribuicoes/cont);
+		double resultado =  ((double)atribuicoes/(double)cont);
 		return resultado;
 	}
 	
 	private double comparacoesMedio(long comparacoes, int cont) {
-		double resultado = (double) (comparacoes/cont);
+		double resultado = ((double)comparacoes/(double)cont);
 		return resultado;
 	}
 	
@@ -58,7 +58,7 @@ public class Resultados extends TemplateMain {
 	}
 
 	@Override
-	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem) {
+	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem, double porcentagem) {
 		// TODO Auto-generated method stub
 		
 	}

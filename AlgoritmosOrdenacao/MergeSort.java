@@ -13,7 +13,7 @@ public class MergeSort<T> extends Sort<T> {
     private static long comparacoes = 0L;
     
     @Override
-    public void ordenar(BiFunction<T, T, Integer> cmp, List <T>list,int ini,int fim, int ordem) {
+    public void ordenar(BiFunction<T, T, Integer> cmp, List <T>list,int ini,int fim, int ordem, double porcentagem) {
         comparacoes++;
         if(fim<2) {
             return;
@@ -21,7 +21,7 @@ public class MergeSort<T> extends Sort<T> {
         List<T> arrayLeft = new ArrayList<T>();
         List<T> arrayRight = new ArrayList<T>();
         int middle = fim / 2;
-
+        
         for (int i = ini; i < middle; i++) { // aqui vai adicionar os valores no array da esquerda
             arrayLeft.add(list.get(i));
         }
@@ -30,8 +30,8 @@ public class MergeSort<T> extends Sort<T> {
             arrayRight.add(list.get(i));
         }
 
-        ordenar(cmp,arrayLeft,ini,arrayLeft.size(), ordem);
-        ordenar(cmp,arrayRight,ini,arrayRight.size(),ordem);
+        ordenar(cmp,arrayLeft,ini,arrayLeft.size(), ordem, porcentagem);
+        ordenar(cmp,arrayRight,ini,arrayRight.size(),ordem, porcentagem);
         merge(cmp,arrayLeft,arrayRight,list,ordem);
 
     }
@@ -40,7 +40,7 @@ public class MergeSort<T> extends Sort<T> {
         int leftLength = arrayLeft.size();
         int rightLength = arrayRight.size();
         int i = 0, j = 0, k = 0;
-
+        
         while (i < leftLength && j < rightLength) {
             int comparador = cmp.apply(arrayLeft.get(i), arrayRight.get(j));
             comparacoes++;

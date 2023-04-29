@@ -11,7 +11,7 @@ public class SelectSort<T> extends Sort<T> {
     private static long comparacoes = 0L;
 
     @Override
-    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem) {
+    public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem, double porcentagem) {
         for (int i = ini; i<=fim;i++) {
             int menor = i; // ou Maior
             T temp = list.get(i);

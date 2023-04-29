@@ -16,6 +16,7 @@ import MenuPrincipal.TemplateMain;
 
 public class GerenciadorAlgoritmos extends TemplateMain{
 	private Sort sort;
+	//função que faz o strategy
 	
 	public void setSort(int metodo) {
 		List<Sort> metodos = new ArrayList<>();
@@ -34,9 +35,9 @@ public class GerenciadorAlgoritmos extends TemplateMain{
 	}
 	
 	@Override
-	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> temp, int ini, int fim, int ordem) {
+	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> temp, int ini, int fim, int ordem, double porcentagem) {
 		
-		sort.ordenar(cmp, temp, ini, fim, ordem);
+		sort.ordenar(cmp, temp, ini, fim, ordem, porcentagem);
 		
 	}
 
