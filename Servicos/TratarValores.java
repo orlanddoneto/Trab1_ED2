@@ -8,15 +8,15 @@ public class TratarValores {
 		boolean valido = false;
 		try {
 			valor = Integer.parseInt(entrada);
-			if (valor >= 1 && valor <= 7) {
+			if (valor >= 1 && valor <= 9) {
 				valido = true;
 			} else {
-				System.out.println("Valor inválido. Digite um número inteiro de 1 a 7: ");
+				System.out.println("Valor inválido. Digite um número inteiro de 1 a 9: ");
 			}
 		} 
 		
 		catch (NumberFormatException e) {
-			System.out.println("Valor inválido. Digite um número inteiro de 1 a 7: ");
+			System.out.println("Valor inválido. Digite um número inteiro de 1 a 9: ");
 		}
 
 		return valido;

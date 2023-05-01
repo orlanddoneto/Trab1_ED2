@@ -1,9 +1,11 @@
 package MenuPrincipal;
 
+import java.util.Comparator;
 import java.util.List;
 
 import Entidade.Cliente;
 import Servicos.BifCompare;
+import Servicos.ComparatorJDK;
 
 public class Resultados extends TemplateMain {
 	@Override
@@ -67,6 +69,12 @@ public class Resultados extends TemplateMain {
 	public double porcentagem() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void ordenarAlgoritmo(ComparatorJDK cmp, List<Cliente> list) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

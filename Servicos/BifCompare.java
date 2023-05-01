@@ -46,6 +46,14 @@ public class BifCompare implements BiFunction<Cliente, Cliente, Integer> {
 	public Integer compareDouble (Double a, Double b) {
 		return a.compareTo(b);
 	}
+
+
+	public int getCriterio() {
+		return criterio;
+	}
+
+	
+	
 	
 	//a>b = 1 ....  zebra e agua = 1
 	//a<b = -1	..... agua e zebra = -1

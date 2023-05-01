@@ -1,19 +1,20 @@
 package AlgoritmosOrdenacao;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 
 
 public class QMSort<T> extends Sort<T> {
-	private static final int TAMANHO_LIMITE_QUICKSORT = 10;
+	private static final int TamLimite_Quick = 10;
 	private long comparacoes = 0L;
 	private long movimentacoes = 0L;
 
 	@Override
 	public void ordenar(BiFunction<T, T, Integer> cmp, List<T> list, int ini, int fim, int ordem, double porcentagem) {
 		if(ini<fim) {
-			if(fim-ini+1 <= TAMANHO_LIMITE_QUICKSORT) {
+			if(fim-ini+1 <= TamLimite_Quick) {
 				QuickSort quicksort = new QuickSort();
 				quicksort.ordenar(cmp, list, ini, fim, ordem, porcentagem);
 				comparacoes = quicksort.getComparacoes();
@@ -39,8 +40,13 @@ public class QMSort<T> extends Sort<T> {
 
 	@Override
 	public long getMovimentacoes() {
-		// TODO Auto-generated method stub
 		return movimentacoes;
+	}
+
+	@Override
+	public void ordenar(Comparator<T> cmp, List<T> list) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

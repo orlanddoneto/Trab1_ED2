@@ -1,10 +1,12 @@
 package MenuPrincipal;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 import Entidade.Cliente;
 import Servicos.BifCompare;
+import Servicos.ComparatorJDK;
 import Servicos.TratarValores;
 
 public class Menu extends TemplateMain{
@@ -15,7 +17,7 @@ public class Menu extends TemplateMain{
 		String temp = null;
 		
 		System.out.printf("\nEscolha o método de ordenacao:\n(1) - QM-Sort\n(2) - SI-Sort\n(3) - SelectSort\n(4) - "
-				+ "InsertSort\n(5) - QuickSort\n(6) - MergeSort\n(7) - HeapSort\n\nSua escolha: ");
+				+ "InsertSort\n(5) - QuickSort\n(6) - MergeSort\n(7) - HeapSort\n(8) - CollectionsSort\n(9) - ArrayJDKSort\n\nSua escolha: ");
 		
 		while (!tratar) {
 			temp = sc.nextLine(); //
@@ -107,6 +109,12 @@ public class Menu extends TemplateMain{
 
 	@Override
 	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem, double porcentagem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ordenarAlgoritmo(ComparatorJDK cmp, List<Cliente> list) {
 		// TODO Auto-generated method stub
 		
 	}

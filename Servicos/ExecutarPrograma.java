@@ -1,5 +1,6 @@
 package Servicos;
 
+import java.util.Comparator;
 import java.util.List;
 
 import Entidade.Cliente;
@@ -49,8 +50,16 @@ public class ExecutarPrograma extends TemplateMain {
 
 	@Override
 	public double porcentagem() {
-		// TODO Auto-generated method stub
-		return 0;
+		Menu menu = new Menu();
+		return menu.porcentagem();
+		
+	}
+
+	@Override
+	public void ordenarAlgoritmo(ComparatorJDK cmp, List<Cliente> list) {
+		GerenciadorAlgoritmos algoritmo = new GerenciadorAlgoritmos();
+		algoritmo.ordenarAlgoritmo(cmp,list);
+		
 	}
 
 }

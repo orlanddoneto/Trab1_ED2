@@ -2,6 +2,8 @@ package Servicos;
 import java.util.ArrayList;
 import java.util.List;
 
+import AlgoritmosOrdenacao.ArrayJDK;
+import AlgoritmosOrdenacao.CollectionsJDK;
 import AlgoritmosOrdenacao.HeapSort;
 import AlgoritmosOrdenacao.InsertSort;
 import AlgoritmosOrdenacao.MergeSort;
@@ -27,6 +29,8 @@ public class GerenciadorAlgoritmos extends TemplateMain{
 		metodos.add(new QuickSort());
 		metodos.add(new MergeSort());
 		metodos.add(new HeapSort());
+		metodos.add(new CollectionsJDK());
+		metodos.add(new ArrayJDK());
 		this.sort = metodos.get(metodo-1);
 	}
 	
@@ -38,6 +42,12 @@ public class GerenciadorAlgoritmos extends TemplateMain{
 	public void ordenarAlgoritmo(BifCompare cmp, List<Cliente> temp, int ini, int fim, int ordem, double porcentagem) {
 		
 		sort.ordenar(cmp, temp, ini, fim, ordem, porcentagem);
+		
+	}
+	
+	@Override
+	public void ordenarAlgoritmo(ComparatorJDK cmp, List<Cliente> list) {
+		sort.ordenar(cmp, list);
 		
 	}
 
@@ -73,6 +83,8 @@ public class GerenciadorAlgoritmos extends TemplateMain{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
 
 	
 

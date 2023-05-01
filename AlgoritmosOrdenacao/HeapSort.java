@@ -1,5 +1,6 @@
 package AlgoritmosOrdenacao;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -64,5 +65,11 @@ public class HeapSort<T> extends Sort<T>{
 	@Override
 	public long getComparacoes() {
 		return comparacoes;
+	}
+
+	@Override
+	public void ordenar(Comparator<T> cmp, List<T> list) {
+		// TODO Auto-generated method stub
+		
 	}
 }

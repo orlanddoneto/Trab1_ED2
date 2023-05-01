@@ -1,14 +1,16 @@
 package MenuPrincipal;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-import AlgoritmosOrdenacao.Sort;
+import AlgoritmosOrdenacao.CollectionsJDK;
 import Entidade.Cliente;
 import GerenciadorCSV.EscritorCSV;
 import GerenciadorCSV.LeitorCSV;
 import Servicos.BifCompare;
+import Servicos.ComparatorJDK;
 import Servicos.GerenciadorAlgoritmos;
 
 public abstract class TemplateMain {
@@ -29,11 +31,12 @@ public abstract class TemplateMain {
 		
 		int numExecucoes = this.numExecucoes();
 		int criterio = this.criterio();
+		
 		int ordem = this.ordem();
 		
-
 		BifCompare cmp = new BifCompare(criterio);
-
+		ComparatorJDK cmp2 = new ComparatorJDK(criterio);
+		
 		int numExecucoesAtual = 0; // contador para delimitar até numExecucoes
 
 		long inicioRelogio = System.currentTimeMillis();// tempo Inicial Em Milissegundos
@@ -44,7 +47,17 @@ public abstract class TemplateMain {
 		while (numExecucoesAtual < numExecucoes) {
 			numExecucoesAtual++;
 			lista = csv.getLines();
-			gerente.ordenarAlgoritmo(cmp, lista, 0, lista.size() - 1, ordem,porcentagem);
+			
+			
+			if(metodo==8 || metodo==9) { //Teste para Collections
+				gerente.ordenarAlgoritmo(cmp2, lista);
+			}
+			else {
+				gerente.ordenarAlgoritmo(cmp, lista, 0, lista.size() - 1, ordem,porcentagem);
+			}
+			
+			
+			
 
 		}
 
@@ -77,6 +90,8 @@ public abstract class TemplateMain {
 	// gerencia a execução de determinado algoritmo, com base no valor de método
 	// (classe GerenciadorAlgoritmos, no pacote Servicos)
 	public abstract void ordenarAlgoritmo(BifCompare cmp, List<Cliente> lista, int ini, int fim, int ordem, double porcentagem);
+	
+	public abstract void ordenarAlgoritmo(ComparatorJDK cmp, List<Cliente> list);
 
 	// exibe os resultados da ordenação classe Resultados
 	public abstract void imprimirResultados(long trocas, long comparacoes, long tempo, int numExecucoes);
